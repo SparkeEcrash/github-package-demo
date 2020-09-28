@@ -12,7 +12,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-        registry-url: 'https://registry.npmjs.org'
+        registry-url: 'https://npm.pkg.github.com'
         scope: '@sparkeecrash'
     - run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
       env:
