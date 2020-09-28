@@ -10,13 +10,13 @@ jobs:
     - uses: actions/checkout@v2
     # Setup .npmrc file to publish to GitHub Packages
     - uses: actions/setup-node@v1
-    - run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       with:
         node-version: '10.x'
         registry-url: 'https://registry.npmjs.org'
         scope: '@sparkeecrash'
+    - run: echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" > .npmrc
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
     - run: npm install
     # Publish to GitHub Packages
     - run: npm publish
